@@ -1,0 +1,52 @@
+@import "mixins";
+@import "colors";
+ 
+*{
+    @include reset;
+}
+body{
+    background-color: $color-dark;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container{
+    background-color: $color-mediumdark;
+    width: 30em;
+    height: 15em;
+    border-radius: 15px;
+}
+
+.container h2{
+    color: $color-accent;
+    font-size: 50px;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.container_list{
+    background-color: $color-mediumdark;
+    @include main-box;
+    
+}
+.container_list button{
+    background-color: $color-fire;
+    @include main-btn;
+}
+.container_list input{
+    background-color: $color-light;
+    padding: 10px;
+    border-radius: 20px;
+}
+ul li{
+    list-style: none;
+    font-size: 20px;
+    padding: 12px 8px 12px 50px;
+    cursor: pointer;
+
+}
+
