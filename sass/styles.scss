@@ -43,10 +43,30 @@ body{
     border-radius: 20px;
 }
 ul li{
+    position: relative;
     list-style: none;
     font-size: 20px;
     padding: 12px 8px 12px 50px;
     cursor: pointer;
 
 }
+
+#taskList{
+    width: auto;
+    height: 30em;
+    background-color: beige;
+  }
+  ul li span {
+    position: absolute;
+    right: 2px;
+    width: 35px;
+    height: auto;
+    font-size: 22px;
+    text-align: center;
+    &:hover{
+        background-color: $color-light;
+    }
+  }  
+
+      
 
