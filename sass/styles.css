@@ -6,56 +6,123 @@
 
 body {
   background-color: #272727;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .container {
   background-color: #6c757d;
-  width: 30em;
-  height: 15em;
+  width: 100%;
+  min-height: 100vh;
   border-radius: 15px;
+  padding: 10px;
 }
 
-.container h2 {
-  color: #ffc107;
-  font-size: 50px;
-  padding: 10px;
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background-color: #999;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+}
+
+.todo-app h2 {
   text-align: center;
+  padding-bottom: 20px;
+  color: rgb(255, 71, 51);
 }
 
-.container_list {
-  background-color: #6c757d;
-  border-radius: 15px;
+.task-form {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-left: 50px;
+  justify-content: space-between;
+  background-color: #6d6d6d;
+  border-radius: 30px;
+  padding-left: 30px;
   margin-bottom: 25px;
-  width: 18em;
 }
 
-.container_list button {
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+
+::placeholder {
+  color: #999;
+}
+
+button {
   background-color: rgb(255, 71, 51);
-  padding: 10px;
-  border-radius: 20px;
+  padding: 18px;
+  border-radius: 40px;
+  border: none;
   color: white;
   font-weight: bolder;
-}
-
-.container_list input {
-  background-color: #999;
-  padding: 10px;
-  border-radius: 20px;
+  cursor: pointer;
 }
 
 ul li {
+  color: white;
   list-style: none;
   font-size: 20px;
   padding: 12px 8px 12px 50px;
+  user-select: none;
   cursor: pointer;
+  position: relative;
 }
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(/images/unchecked.png);
+  background-size: cover;
+  top: 10px;
+  left: 8px;
+}
+
+ul li.checked {
+  color: #6d6d6d;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  background-image: url(/images/checked.png);
+}
+
+ul li span {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 30px;
+  text-align: center;
+}
+ul li span:hover {
+  background-color: #6c757d;
+}
+
+/*ul li{
+    position: relative;
+    list-style: none;
+    font-size: 20px;
+    padding: 12px 8px 12px 50px;
+    cursor: pointer;
+
+}
+
+#taskList{
+    width: auto;
+    height: 30em;
+    background-color: beige;
+  }
+
+  }  */
 
 /*# sourceMappingURL=styles.css.map */

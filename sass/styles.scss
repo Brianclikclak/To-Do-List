@@ -6,47 +6,112 @@
 }
 body{
     background-color: $color-dark;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
 }
 
 .container{
     background-color: $color-mediumdark;
-    width: 30em;
-    height: 15em;
+    width: 100%;
+    min-height: 100vh;
     border-radius: 15px;
-}
-
-.container h2{
-    color: $color-accent;
-    font-size: 50px;
     padding: 10px;
-    text-align: center;
+}
+.todo-app{
+    width: 100%;
+    max-width: 540px;
+    background-color: $color-light;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px
+}
+.todo-app h2{
+   text-align: center;
+   padding-bottom: 20px;
+   color: $color-fire;
 }
 
-
-.container_list{
-    background-color: $color-mediumdark;
-    @include main-box;
-    
+.task-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-medium-light;
+    border-radius: 30px;
+    padding-left: 30px;
+    margin-bottom: 25px;
 }
-.container_list button{
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+::placeholder{
+    color: $color-light;
+}
+button{
     background-color: $color-fire;
     @include main-btn;
 }
-.container_list input{
-    background-color: $color-light;
-    padding: 10px;
-    border-radius: 20px;
-}
-ul li{
+
+ ul li{
+    color: white;
+    list-style:none;
+    font-size: 20px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+ }
+ ul li::before{
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(/images/unchecked.png);
+    background-size: cover;
+    top: 10px;
+    left: 8px;
+ }
+
+ ul li.checked{
+    color: $color-medium-light;
+    text-decoration: line-through;
+ }
+ ul li.checked::before{
+    background-image: url(/images/checked.png);
+ }
+
+ ul li span {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    &:hover{
+        background-color: $color-mediumdark;
+    }
+ }
+/*ul li{
+    position: relative;
     list-style: none;
     font-size: 20px;
     padding: 12px 8px 12px 50px;
     cursor: pointer;
 
 }
+
+#taskList{
+    width: auto;
+    height: 30em;
+    background-color: beige;
+  }
+  
+  }  */
+
+      
 

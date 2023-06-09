@@ -9,18 +9,26 @@
 </head>
 <body>
     
-        <div class="container">
-            <h2>To Do List</h2>
-           <form id="taskForm">
-            <div class="container_list">
-                <input type="text" id="taskInput" placeholder="Add your new task here!">
-                <button type="submit">Add Task</button>
-           </form>
-           <ul id="taskList">
+    <div class="container">
+        <div class="todo-app">
+             <h2>To-Do List</h2>
+            <form class="task-form">
+               
+                <input type="text" id="inputBox" placeholder="Add your new task here!">
+                <button type="submit" id="btnSubmit">Add Task</button>
+               
+            </form>
+            <div class="list_container">
+              <ul id="taskList">
+                <!--<li class="checked">task1</li>
+                <li>task2</li>
+                <li>task3</li>-->
              
-           </ul>
+              </ul>
+            </div>
         </div>
-        </div>
+    </div>
     
 </body>
+<script src="index.js"></script>
 </html>

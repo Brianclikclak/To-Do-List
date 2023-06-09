@@ -14,8 +14,10 @@
 }
 
 @mixin main-btn {
-padding: 10px;
-border-radius: 20px;
+padding: 18px; 
+border-radius: 40px;
+border: none;
 color: white;
 font-weight: bolder;
+cursor: pointer;
 }
