@@ -53,7 +53,8 @@ btnSubmit.addEventListener("click", (e) => {
         }
         li.appendChild(deleteButton);
         li.appendChild(editIcon);
-        
+        updateTaskCategory(li); // Actualizar categoría de tarea al guardar edición
+        saveTasks();
       });
       input.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
@@ -65,7 +66,8 @@ btnSubmit.addEventListener("click", (e) => {
           }
           li.appendChild(deleteButton);
           li.appendChild(editIcon);
-          
+          updateTaskCategory(li); // Actualizar categoría de tarea al guardar edición
+          saveTasks();
         }
       });
     });
@@ -73,7 +75,10 @@ btnSubmit.addEventListener("click", (e) => {
     // Crear la función para borrar las tareas ya creadas
     deleteButton.addEventListener("click", () => {
       li.remove();
+      saveTasks();
     });
+
+    saveTasks();
   }
   inputBox.value = "";
 });
@@ -82,38 +87,38 @@ btnSubmit.addEventListener("click", (e) => {
 taskList.addEventListener("click", (e) => {
   if (e.target.tagName === "LI") {
     e.target.classList.toggle("checked");
+    saveTasks();
   } else if (e.target.classList.contains("delete")) {
     e.target.parentElement.remove();
+    saveTasks();
   }
 }, false);
 
 // Añadir evento "change" al selector de filtro por estado
 filterStatusSelect.addEventListener("change", () => {
-    const selectedStatus = filterStatusSelect.value;
-    filterTasksByStatus(selectedStatus);
-  });
-  
-  // Filtrar las tareas por estado
-  function filterTasksByStatus(status) {
-    const tasks = taskList.getElementsByTagName("li");
-    for (let i = 0; i < tasks.length; i++) {
-      const task = tasks[i];
-      const isChecked = task.classList.contains("checked");
-      const taskCategory = task.getAttribute("data-category");
-  
-      if (
-        (status === "All") ||
-        (status === "Todo" && !isChecked) ||
-        (status === "Done" && isChecked)
-      ) {
-        task.style.display = "block";
-      } else {
-        task.style.display = "none";
-      }
+  const selectedStatus = filterStatusSelect.value;
+  filterTasksByStatus(selectedStatus);
+});
+
+// Filtrar las tareas por estado
+function filterTasksByStatus(status) {
+  const tasks = taskList.getElementsByTagName("li");
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    const isChecked = task.classList.contains("checked");
+    const taskCategory = task.getAttribute("data-category");
+
+    if (
+      (status === "All") ||
+      (status === "Todo" && !isChecked) ||
+      (status === "Done" && isChecked)
+    ) {
+      task.style.display = "block";
+    } else {
+      task.style.display = "none";
     }
   }
-  
-  
+}
 
 // Añadir evento "change" al selector de filtro por tipo
 filterTypeSelect.addEventListener("change", () => {
@@ -143,3 +148,82 @@ function updateTaskCategory(task) {
   categoryText.textContent = selectedType;
   categoryText.setAttribute("data-value", selectedType.toLowerCase());
 }
+
+// Guardar las tareas en el localStorage
+function saveTasks() {
+  const tasks = taskList.innerHTML;
+  localStorage.setItem("tasks", tasks);
+}
+
+// Cargar las tareas desde el localStorage
+function loadTasks() {
+  if (localStorage.getItem("tasks")) {
+    taskList.innerHTML = localStorage.getItem("tasks");
+  }
+  const tasks = taskList.getElementsByTagName("li");
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    deleteButton.className = "delete";
+    task.appendChild(deleteButton);
+
+    const editIcon = document.createElement("i");
+    editIcon.className = "fa-solid fa-pen-to-square";
+    task.appendChild(editIcon);
+
+    const categoryText = document.createElement("span");
+    categoryText.textContent = task.getAttribute("data-category");
+    categoryText.className = "category";
+    categoryText.setAttribute("data-value", task.getAttribute("data-category"));
+    task.appendChild(categoryText);
+
+    editIcon.addEventListener("click", () => {
+      const text = task.textContent.trim();
+      const input = document.createElement("input");
+      input.type = "text";
+      input.value = text;
+      task.innerHTML = "";
+      task.appendChild(input);
+      input.focus();
+      input.addEventListener("blur", () => {
+        const inputValue = input.value.trim();
+        if (inputValue !== "") {
+          task.textContent = inputValue;
+        } else {
+          task.textContent = text;
+        }
+        task.appendChild(deleteButton);
+        task.appendChild(editIcon);
+        updateTaskCategory(task);
+        saveTasks();
+      });
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          const inputValue = input.value.trim();
+          if (inputValue !== "") {
+            task.textContent = inputValue;
+          } else {
+            task.textContent = text;
+          }
+          task.appendChild(deleteButton);
+          task.appendChild(editIcon);
+          updateTaskCategory(task);
+          saveTasks();
+        }
+      });
+    });
+
+    deleteButton.addEventListener("click", () => {
+      task.remove();
+      saveTasks();
+    });
+  }
+}
+
+// Cargar las tareas al cargar la página
+loadTasks();
+
+// Filtrar las tareas al cargar la página
+filterTasksByStatus(filterStatusSelect.value);
+filterTasksByType(filterTypeSelect.value);
