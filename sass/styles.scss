@@ -1,0 +1,201 @@
+@import "mixins";
+@import "colors";
+ 
+*{
+    @include reset;
+}
+body{
+    background-color: $color-dark;
+}
+
+.container{
+    background-color: $color-mediumdark;
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 15px;
+    padding: 10px;
+}
+.container h1{
+    text-align: center;
+    color: $color-fire;
+}
+.todo-app{
+    width: 100%;
+    max-width: 540px;
+    background-color: $color-light;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px
+}
+.todo-app h3{
+   text-align: center;
+   padding-bottom: 20px;
+   color: $color-fire;
+}
+
+.task-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-medium-light;
+    border-radius: 30px;
+    padding-left: 30px;
+    margin-bottom: 25px;
+}
+
+input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+::placeholder{
+    color: $color-light;
+}
+#btnSubmit{
+    background-color: $color-fire;
+    @include main-btn;
+}
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 100%;
+    max-height: 50%;
+}
+label {
+    background-color: $color-medium-light;
+    width: 80px;
+    height: 100px;
+    padding: 15px 0;
+    border-radius: 20px;
+    text-align: center;
+    div{
+        color: $color-fire;
+        line-height: 40px;
+    }
+}
+.filter-status{
+    padding: 10px;
+}
+.filter-type{
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+ ul li{
+    color: white;
+    list-style:none;
+    font-size: 20px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    word-break: break-all;
+    display: flex;
+    align-items: center;
+    max-width: 100%; 
+    margin-top: 50px;
+    background-color: $color-mediumdark;
+    border-radius: 10px;
+    }
+     
+    
+    span {
+        position: absolute;
+        top: 25px;
+        right: 30px;
+        width: 35px;
+        color: #d54444;
+        font-size: 14px;
+        text-align: center;
+       
+     }
+     .delete{
+        position: absolute;
+        right: 2px;
+        top: 2px;
+        cursor: pointer;
+        border-radius: 20px;
+        padding: 2px;
+        &:hover{
+            background-color: $color-fire;
+            color: white;
+        }
+
+     }
+    i {
+    position: absolute;
+    top: 1px;
+    right: 45px;
+    width: 35px;
+    font-size: 20px;
+    text-align: center;
+    &:hover{
+        color: $color-fire
+    }
+    }         
+ 
+
+ ul li::before{
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(/images/unchecked.png);
+    background-size: cover;
+    top: 10px;
+    left: 8px;
+ }
+
+ ul li.checked{
+    color: $color-medium-light;
+    text-decoration: line-through;
+   
+ }
+
+ ul li.checked::before{
+    background-image: url(/images/checked.png);
+    font-size: 10px;
+ }
+
+ @media screen and (max-width: 500px){
+
+   i{
+    font-size: 15px;
+    position: absolute;
+    top: 1px;
+    right: 30px;
+    width: 35px;
+    text-align: center;
+}
+   }
+   .delete{
+    font-size: 10px;
+   }
+
+ 
+
+ 
+
+
+  
+
+ 
+ 
+
+
+ 
+
+      
+

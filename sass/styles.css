@@ -1,0 +1,187 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #272727;
+}
+
+.container {
+  background-color: #6c757d;
+  width: 100%;
+  min-height: 100vh;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.container h1 {
+  text-align: center;
+  color: rgb(255, 71, 51);
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 540px;
+  background-color: #999;
+  margin: 100px auto 20px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+}
+
+.todo-app h3 {
+  text-align: center;
+  padding-bottom: 20px;
+  color: rgb(255, 71, 51);
+}
+
+.task-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #6d6d6d;
+  border-radius: 30px;
+  padding-left: 30px;
+  margin-bottom: 25px;
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+}
+
+::placeholder {
+  color: #999;
+}
+
+#btnSubmit {
+  background-color: rgb(255, 71, 51);
+  padding: 18px;
+  border-radius: 40px;
+  border: none;
+  color: white;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.options {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 100%;
+  max-height: 50%;
+}
+
+label {
+  background-color: #6d6d6d;
+  width: 80px;
+  height: 100px;
+  padding: 15px 0;
+  border-radius: 20px;
+  text-align: center;
+}
+label div {
+  color: rgb(255, 71, 51);
+  line-height: 40px;
+}
+
+.filter-status {
+  padding: 10px;
+}
+
+.filter-type {
+  padding: 10px;
+}
+
+ul li {
+  color: white;
+  list-style: none;
+  font-size: 20px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  margin-top: 50px;
+  background-color: #6c757d;
+  border-radius: 10px;
+}
+
+span {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  width: 35px;
+  color: #d54444;
+  font-size: 14px;
+  text-align: center;
+}
+
+.delete {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 2px;
+}
+.delete:hover {
+  background-color: rgb(255, 71, 51);
+  color: white;
+}
+
+i {
+  position: absolute;
+  top: 1px;
+  right: 45px;
+  width: 35px;
+  font-size: 20px;
+  text-align: center;
+}
+i:hover {
+  color: rgb(255, 71, 51);
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background-image: url(/images/unchecked.png);
+  background-size: cover;
+  top: 10px;
+  left: 8px;
+}
+
+ul li.checked {
+  color: #6d6d6d;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  background-image: url(/images/checked.png);
+  font-size: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  i {
+    font-size: 15px;
+    position: absolute;
+    top: 1px;
+    right: 30px;
+    width: 35px;
+    text-align: center;
+  }
+}
+.delete {
+  font-size: 10px;
+}
+
+/*# sourceMappingURL=styles.css.map */

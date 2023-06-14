@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sass/styles.css">
+    <title>Tasks List</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>To-Do List</h1>
+        <div class="todo-app">
+             <h3>What task you need to do?</h3>
+            <form class="task-form">
+               
+                <input type="text" id="inputBox" placeholder="Add your new task here!">
+                <button type="submit" id="btnSubmit">Add Task</button>
+               
+            </form>
+           <div class="options">
+                <label>
+                    <input type="radio" name="category" id="workOption" value="Work">
+                    <span class="work-select"></span>
+                    <div>Work</div>
+                </label>
+                
+                <label>
+                    <input type="radio" name="category" id="HomeOption" value="Home">
+                    <span class="home-select"></span>
+                    <div>Home</div>
+                </label>
+
+                <label>
+                    <input type="radio" name="category" id="classOption" value="Class">
+                    <span class="class-select"></span>
+                    <div>Class</div>
+                </label>
+
+                <div class="filters">
+
+                    <h4>Filter by status</h4>
+                    <div class="filter-status">
+                         <select name="" id="filterStatusSelect">
+                            <option value="All">All</option>
+                            <option value="Todo">To do</option>
+                            <option value="Done">Done</option>
+                         </select>
+                    </div>
+
+                    <h4>Filter by type</h4>
+                    <div class="filter-type">
+                         <select name="" id="filterTypeSelect">
+                            <option value="all">All</option>
+                            <option value="Work">Work</option>
+                            <option value="Home">Home</option>
+                            <option value="Class">Class</option>
+                         </select>
+                     </div>
+                 </div>
+
+
+            </div>
+
+           
+           
+        
+
+
+            
+
+            <div class="list_container">
+                
+              <ul id="taskList">
+                
+              </ul>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<script src="index.js"></script>
+<script src="https://kit.fontawesome.com/5ff3ffe976.js" crossorigin="anonymous"></script> 
+</html> 
+

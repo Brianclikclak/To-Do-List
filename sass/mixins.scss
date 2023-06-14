@@ -1,0 +1,23 @@
+@mixin reset{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+@mixin main-box {
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    margin-left: 50px;
+    margin-bottom: 25px;
+    width: 18em;
+}
+
+@mixin main-btn {
+padding: 18px; 
+border-radius: 40px;
+border: none;
+color: white;
+font-weight: bolder;
+cursor: pointer;
+}
